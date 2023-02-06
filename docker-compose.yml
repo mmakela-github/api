@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+    api:
+        container_name: api
+        image: api
+        restart: always
+        build:
+            context: ./api
+            dockerfile: Dockerfile
+            target: prod
+        ports:
+            - "${PORT}:${PORT}"
+        environment:
+            - PORT=${PORT}
